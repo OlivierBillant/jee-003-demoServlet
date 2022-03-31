@@ -2,12 +2,45 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Formulaire</title>
+<title>Formulaire d'inscription</title>
 </head>
 <body>
-	<form action="./inscription" method="get">
-		<input type="text" name="prenom"/>
+
+	<h1>Formulaire d'inscription</h1>
+	
+	<!-- 
+	pour créer un formulaire : il faut utiliser la balise <form> avec 2 attributs :
+		- action : correspond à l'url vers laquelle je vais envoyer ma requêtte HTTP à l avalidation du formulaire
+		 			2 types d'url : 
+		 				- ./XXXXX : url relative à mon url courante, donc relative à la racine de mon application pour les pages HTML situées à la racine (comme index.html) : http://localhost:8080/DemoServlets/XXXXX
+		 				- /XXXXX : url relative à mon serveur : http://localhost:8080/XXXXX
+		
+		- method : correspond au type de requête que je veux envoyer à la validation de mon formulaire
+					2 valeurs possibles : GET (par défaut) ou POST :
+					 - GET : à privilegier uniquement pour les formulaires de recherche
+					 - POST : pour toutes les autres requêtes
+	 -->			
+	<form action="./inscription" method="POST">
+		
+		<!--  
+			balise <input> : crée un champs de saisie qui correspond à une information qui va être envoyée dans la requête HTTP
+			2 attributs :
+				- type : correspond au type d'information que mon champs de saisie renseigne (text/number/etc... pour plus d'infos : https://www.w3schools.com/tags/tag_input.asp) 
+				- name : correspond au nom qu'on va donner à l'attribut de requête qui va être envoyé à partir de la valeur qu'on va saisir  
+		-->
+		
+		<!--  balise <label> : affiche un label pour preciser à quoi correspond le champs de saisie" -->
+		<label>Prenom : </label>
+		<input type="text" name="prenom"/> <br> <br> <!--  <br> : va à la ligne> -->
+		
+		
+		<label>Age : </label>
+		<input type="number" name="age"/> <br> <br> <!--  <br> : va à la ligne>-->
+		
+		<!--  balise <button> : valide le formulaire et envoie la requête HTTP vers l'url définie dans "action" -->
+		<button>Valider</button>
+		
+		
 	</form>
-	<button>Valider</button>
 </body>
 </html>
